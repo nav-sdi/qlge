@@ -22,6 +22,17 @@ This module is meant to work with devices that have the following PCI IDs:
 ```
 dkms install ./
 ```
+Note for debian:
+
+```
+cd src
+make
+cp qlge.ko /lib/modules/$(uname -r)/kernel/drivers/net/ethernet/qlogic/
+depmode -a
+# add module.sig_enforce=0 to GRUB_CMDLINE_LINUX_DEFAULT
+nano /etc/default/grub
+update-grub
+```
 
 ## Uninstallation
 
